@@ -60,7 +60,7 @@ func main() {
 	config.Consumer.Group.Session.Timeout = 10 * time.Second
 	config.Consumer.Group.Heartbeat.Interval = 1 * time.Second
 	config.Consumer.Return.Errors = true
-	config.Consumer.Offsets.Initial = sarama.OffsetNewest
+	config.Consumer.Offsets.Initial = sarama.OffsetOldest
 
 	// Создание клиента
 	client, err := sarama.NewConsumerGroup(strings.Split(brokerList, ","), group, config)
